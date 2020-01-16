@@ -29,6 +29,35 @@ android {
     lintOptions {
         abortOnError false
     }
+     buildTypes {
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://pingjetaxi.nl/"'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        stagingDebug {
+            initWith debug
+            buildConfigField "String", "BASE_URL", '"https://pingjetaxi.nl/"'
+        }
+        developerDebug {
+            initWith debug
+            buildConfigField "String", "BASE_URL", '"https://pingjetaxi.nl/"'
+        }
+        liveDebug {
+            initWith debug
+            buildConfigField "String", "BASE_URL", '"https://pingjetaxi.nl/"'
+        }
+        localDebug {
+            initWith debug
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.144:5200/"'
+        }
+    }
 }
 
 repositories {
